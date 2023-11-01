@@ -14,6 +14,11 @@
 		2FF602752AF1A8F900AA8DB9 /* CVSChallengeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602742AF1A8F900AA8DB9 /* CVSChallengeTests.swift */; };
 		2FF6027F2AF1A8F900AA8DB9 /* CVSChallengeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6027E2AF1A8F900AA8DB9 /* CVSChallengeUITests.swift */; };
 		2FF602812AF1A8F900AA8DB9 /* CVSChallengeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602802AF1A8F900AA8DB9 /* CVSChallengeUITestsLaunchTests.swift */; };
+		2FF6028F2AF1A96300AA8DB9 /* FlickrService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF6028E2AF1A96300AA8DB9 /* FlickrService.swift */; };
+		2FF602922AF1AA0500AA8DB9 /* FlickrResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602912AF1AA0500AA8DB9 /* FlickrResult.swift */; };
+		2FF602952AF1AAA200AA8DB9 /* FlickrSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602942AF1AAA200AA8DB9 /* FlickrSearchViewModel.swift */; };
+		2FF602982AF1AB0400AA8DB9 /* ImageDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602972AF1AB0400AA8DB9 /* ImageDetailView.swift */; };
+		2FF6029A2AF1D15600AA8DB9 /* SearchIndicatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF602992AF1D15600AA8DB9 /* SearchIndicatorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		2FF6027A2AF1A8F900AA8DB9 /* CVSChallengeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CVSChallengeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6027E2AF1A8F900AA8DB9 /* CVSChallengeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVSChallengeUITests.swift; sourceTree = "<group>"; };
 		2FF602802AF1A8F900AA8DB9 /* CVSChallengeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CVSChallengeUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		2FF6028E2AF1A96300AA8DB9 /* FlickrService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrService.swift; sourceTree = "<group>"; };
+		2FF602912AF1AA0500AA8DB9 /* FlickrResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrResult.swift; sourceTree = "<group>"; };
+		2FF602942AF1AAA200AA8DB9 /* FlickrSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrSearchViewModel.swift; sourceTree = "<group>"; };
+		2FF602972AF1AB0400AA8DB9 /* ImageDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDetailView.swift; sourceTree = "<group>"; };
+		2FF602992AF1D15600AA8DB9 /* SearchIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIndicatorView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,10 +104,13 @@
 		2FF602622AF1A8F700AA8DB9 /* CVSChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				2FF602632AF1A8F700AA8DB9 /* CVSChallengeApp.swift */,
-				2FF602652AF1A8F700AA8DB9 /* ContentView.swift */,
 				2FF602672AF1A8F900AA8DB9 /* Assets.xcassets */,
+				2FF602632AF1A8F700AA8DB9 /* CVSChallengeApp.swift */,
+				2FF602902AF1A9FC00AA8DB9 /* Model */,
 				2FF602692AF1A8F900AA8DB9 /* Preview Content */,
+				2FF6028D2AF1A95400AA8DB9 /* Service */,
+				2FF602962AF1AAE800AA8DB9 /* View */,
+				2FF602932AF1AA9200AA8DB9 /* ViewModel */,
 			);
 			path = CVSChallenge;
 			sourceTree = "<group>";
@@ -125,6 +138,40 @@
 				2FF602802AF1A8F900AA8DB9 /* CVSChallengeUITestsLaunchTests.swift */,
 			);
 			path = CVSChallengeUITests;
+			sourceTree = "<group>";
+		};
+		2FF6028D2AF1A95400AA8DB9 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2FF6028E2AF1A96300AA8DB9 /* FlickrService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2FF602902AF1A9FC00AA8DB9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FF602912AF1AA0500AA8DB9 /* FlickrResult.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2FF602932AF1AA9200AA8DB9 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				2FF602942AF1AAA200AA8DB9 /* FlickrSearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		2FF602962AF1AAE800AA8DB9 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2FF602652AF1A8F700AA8DB9 /* ContentView.swift */,
+				2FF602972AF1AB0400AA8DB9 /* ImageDetailView.swift */,
+				2FF602992AF1D15600AA8DB9 /* SearchIndicatorView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,6 +306,11 @@
 			files = (
 				2FF602662AF1A8F700AA8DB9 /* ContentView.swift in Sources */,
 				2FF602642AF1A8F700AA8DB9 /* CVSChallengeApp.swift in Sources */,
+				2FF6029A2AF1D15600AA8DB9 /* SearchIndicatorView.swift in Sources */,
+				2FF6028F2AF1A96300AA8DB9 /* FlickrService.swift in Sources */,
+				2FF602952AF1AAA200AA8DB9 /* FlickrSearchViewModel.swift in Sources */,
+				2FF602922AF1AA0500AA8DB9 /* FlickrResult.swift in Sources */,
+				2FF602982AF1AB0400AA8DB9 /* ImageDetailView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -430,6 +482,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,6 +512,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

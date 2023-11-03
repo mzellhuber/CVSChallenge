@@ -13,49 +13,47 @@ class FlickrSearchViewModelTests: XCTestCase {
     var viewModel: FlickrSearchViewModel!
     var mockService: MockFlickrService!
     
-    override func setUp() {
-        super.setUp()
+    override func setUpWithError() throws {
+        try super.setUpWithError()
         mockService = MockFlickrService()
         viewModel = FlickrSearchViewModel(service: mockService)
     }
     
-    override func tearDown() {
+    override func tearDownWithError() throws {
         viewModel = nil
         mockService = nil
-        super.tearDown()
+        try super.tearDownWithError()
     }
     
-    func testFetchImagesSuccess() {
-        let expectation = self.expectation(description: "Fetching Images Success")
+    func testFetchImagesSuccess() async {
+        let expectation = XCTestExpectation(description: "Fetching Images Success")
         mockService.mockItems = [Item(title: "Test", link: "http://test.com", media: Media(m: "http://test.com/image.jpg"), description: "Test Description", author: "Test Author", authorID: "12345", tags: "test")]
-        
-        viewModel.fetchImages(with: "test")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+
+        Task {
+            await viewModel.fetchImages(with: "test")
+            try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second delay
             XCTAssertFalse(self.viewModel.isLoading)
-            XCTAssertNotNil(self.viewModel.items)
-            XCTAssert(self.viewModel.items.count == 1)
+            XCTAssertEqual(self.viewModel.items.count, 1)
             XCTAssertNil(self.viewModel.error)
             expectation.fulfill()
         }
-        
-        waitForExpectations(timeout: 5, handler: nil)
+        await fulfillment(of: [expectation], timeout: 5.0)
     }
 
-    func testFetchImagesFailure() {
-        let expectation = self.expectation(description: "Fetching Images Failure")
+    func testFetchImagesFailure() async {
+        let expectation = XCTestExpectation(description: "Fetching Images Failure")
         mockService.mockError = "Error fetching data"
-        
-        viewModel.fetchImages(with: "test")
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+
+        Task {
+            await viewModel.fetchImages(with: "test")
+            try await Task.sleep(nanoseconds: 1_000_000_000) // 1 second delay
             XCTAssertFalse(self.viewModel.isLoading)
-            XCTAssert(self.viewModel.items.isEmpty)
+            XCTAssertTrue(self.viewModel.items.isEmpty)
             XCTAssertNotNil(self.viewModel.error)
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 5, handler: nil)
+        await fulfillment(of: [expectation], timeout: 5.0)
     }
 }
 
@@ -63,11 +61,11 @@ class MockFlickrService: FlickrServiceProtocol {
     var mockItems: [Item]?
     var mockError: String?
     
-    func fetchImages(with tags: String, completion: @escaping ([Item]?) -> Void) {
+    func fetchImages(with tags: String) async throws -> [Item] {
         if let error = mockError {
-            completion(nil)
+            throw NSError(domain: "", code: 0, userInfo: [NSLocalizedDescriptionKey: error])
         } else {
-            completion(mockItems)
+            return mockItems ?? []
         }
     }
 }
